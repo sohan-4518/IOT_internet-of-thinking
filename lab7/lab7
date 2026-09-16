@@ -1,0 +1,24 @@
+int SmokeSensor=0;
+void setup(){
+  pinMode(A0,INPUT);
+  Serial.begin(9600);
+  pinMode(5,OUTPUT);
+  pinMode(7,OUTPUT);
+}
+
+void loop(){
+  SmokeSensor=analogRead(A0);
+  Serial.println(SmokeSensor);
+  if(SmokeSensor>=90){
+    digitalWrite(5,HIGH);
+  }else{
+    digitalWrite(5,LOW);
+  }
+  if(SmokeSensor>=95){
+    digitalWrite(7,HIGH);
+  }
+  else{
+    digitalWrite(7,LOW);
+  }
+  delay(10);
+}
